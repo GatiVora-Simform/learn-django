@@ -5,7 +5,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 def api_home(request,*args,**kwargs):
+
+    print(request.GET) #to get query params
+
     body = request.body #byte string of json data
+
     data = {}
 
     try:
@@ -13,5 +17,5 @@ def api_home(request,*args,**kwargs):
     except:
         pass
     print(data)
-
-    return JsonResponse({"title":"API Home"})  # return a json response
+    
+    return JsonResponse(data)  # return a json response
